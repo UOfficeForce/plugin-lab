@@ -73,4 +73,17 @@
 	  ],
 	  "description": "X Grid Html建立樣板"
 	}
+	
+	,
+	"X Button": {
+	  "prefix": "x-Button",
+	  "body": [
+		"<button",
+		"   class=\"e-btn u-btn-primary buttons-opposite\" ",
+		"    data-ripple=\"true\"",
+		"   (click)=\"\">",
+		" </button>"
+	  ],
+	  "description": "通用Button樣板"
+	}
   }

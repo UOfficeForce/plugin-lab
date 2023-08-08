@@ -117,4 +117,26 @@
       ],
       "description": "使用Grid分頁器所實作項目"
     }
+    ,
+    "X CreateService": {
+      "prefix": "x-CreateService",
+      "body": [
+        "import { BasicApiService } from \"./basic-api.service\";",
+        "import { Injectable } from \"@angular/core\";",
+        "",
+        "//記得要在外掛欄位Module的BASIC_SERVICES注入Service",
+        "",
+        "@Injectable()",
+        "export class ServiceName extends BasicApiService {",
+        "",
+        "",
+        "get() {",
+        "  return this.http.get<any>(\"URL\");",
+        "};",
+       
+        "}"
+
+      ],
+      "description": "建立服務器樣板"
+    }
   }
