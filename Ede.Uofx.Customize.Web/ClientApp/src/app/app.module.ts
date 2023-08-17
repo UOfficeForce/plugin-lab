@@ -1,26 +1,24 @@
+import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './develop-lab/home/home.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { IconModule } from './icon.module';
+import { NavMenuComponent } from './develop-lab/nav-menu/nav-menu.component';
+import { RouterModule } from '@angular/router';
+import { TemplateFieldWriteComponent } from './web/template-field/write/template-field.write.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { UofxTranslateLoader } from './translate-loader';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   NO_ERRORS_SCHEMA,
   NgModule,
 } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
   MenuModule,
   SidebarModule,
   ToolbarModule,
 } from '@syncfusion/ej2-angular-navigations';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
-import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { Helper } from '@uofx/core';
-import { HomeComponent } from './home/home.component';
-import { IconModule } from './icon.module';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { RouterModule } from '@angular/router';
-import { TemplateFieldWriteComponent } from './web/template-field/write/template-field.write.component';
-import { UofxTranslateLoader } from './translate-loader';
 
 // #region i18n services
 export function I18nHttpLoaderFactory(http: HttpClient) {
@@ -48,7 +46,7 @@ const EJS_MODULES = [MenuModule, SidebarModule, ToolbarModule];
 @NgModule({
   declarations: [AppComponent, NavMenuComponent, HomeComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
