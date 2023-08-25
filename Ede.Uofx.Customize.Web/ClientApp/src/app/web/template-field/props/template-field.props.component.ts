@@ -7,7 +7,7 @@
 */
 
 import { Component, Input, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 import { BpmFwPropsComponent } from '@uofx/web-components/form';
 
@@ -25,11 +25,11 @@ export class TemplateFieldPropsComponent
   extends BpmFwPropsComponent
   implements OnInit
 {
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() exProps: TemplateFieldExProps;
 
   isShowHelloWorld: boolean;
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     super(fb);
   }
 

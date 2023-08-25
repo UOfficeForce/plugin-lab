@@ -8,8 +8,8 @@
 
 import {
   AbstractControl,
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   ValidationErrors,
   ValidatorFn,
 } from '@angular/forms';
@@ -44,10 +44,10 @@ export class TemplateFieldWriteComponent
   /*置換className*/
   @Input() exProps: TemplateFieldExProps;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   constructor(
     private cdr: ChangeDetectorRef,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private tools: UofxFormTools
   ) {
     super();
@@ -101,7 +101,7 @@ export class TemplateFieldWriteComponent
 
 
 /*外掛欄位自訂的證器*/
-function validateSelf(form: FormGroup): ValidatorFn {
+function validateSelf(form: UntypedFormGroup): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     return form.valid ? null : { formInvalid: true };
   };
