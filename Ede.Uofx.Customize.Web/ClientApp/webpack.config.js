@@ -11,10 +11,14 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "sample",
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType: 'text/javascript'
   },
   optimization: {
     runtimeChunk: false
+  },
+  devServer: {
+    allowedHosts: 'all'
   },
   resolve: {
     alias: {

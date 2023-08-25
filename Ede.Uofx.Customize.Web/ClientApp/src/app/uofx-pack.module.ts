@@ -7,52 +7,64 @@ import { UofxDialogModule } from '@uofx/web-components/dialog';
 import { UofxDirectiveModule } from '@uofx/web-components';
 import { UofxDropdownButtonModule } from '@uofx/web-components/dropdown-button';
 import { UofxEmptyStatusModule } from '@uofx/web-components';
+import { UofxFileModule } from '@uofx/web-components/file';
 import { UofxFormFieldBaseModule, UofxFormModule } from '@uofx/web-components/form';
 import { UofxIconModule } from '@uofx/web-components/icon';
-import {
-  UofxLoadingModule,
-  UofxPipeModule,
-  UofxRedirectModule
-} from '@uofx/web-components';
+import { UofxLoadingModule, UofxPaginationModule } from '@uofx/web-components';
+import { UofxPipeModule } from '@uofx/web-components/pipes';
+import { UofxProgressButtonModule } from '@uofx/web-components/progress-button';
+import { UofxRedirectModule } from '@uofx/web-components/redirect';
 import { UofxSearchBarModule } from '@uofx/web-components/search-bar';
 import { UofxSelectModule } from '@uofx/web-components/select';
 import { UofxSpinnerModule } from '@uofx/web-components';
-import { UofxTagSelectModule } from '@uofx/web-components/tag-select';
 import { UofxTextareaModule } from '@uofx/web-components/textarea';
 import { UofxTextEllipsisModule } from '@uofx/web-components/text-ellipsis';
-import { UofxTranslateModule } from '@uofx/web-components';
 import { UofxToastModule } from '@uofx/web-components/toast';
 import { UofxTooltipModule } from '@uofx/web-components/tooltip';
+import { UofxTranslateModule } from '@uofx/web-components';
 import { UofxTreeModule } from '@uofx/web-components/tree';
 import { UofxUserSelectModule } from '@uofx/web-components/user-select';
 
 @NgModule({
   exports: [
     UofxAvatarModule,
+
     UofxCardModule,
     UofxChipModule,
+
     UofxDateRangeModule,
     UofxDialogModule,
     UofxDirectiveModule,
     UofxDropdownButtonModule,
+
     UofxEmptyStatusModule,
+
+    UofxFileModule,
     UofxFormFieldBaseModule,
     UofxFormModule,
+
     UofxIconModule,
+
     UofxLoadingModule,
+    UofxPaginationModule,
     UofxPipeModule,
+
+    UofxProgressButtonModule,
     UofxRedirectModule,
     UofxSearchBarModule,
+
     UofxSelectModule,
     UofxSpinnerModule,
-    UofxTagSelectModule,
     UofxTextareaModule,
     UofxTextEllipsisModule,
     UofxToastModule,
     UofxTooltipModule,
+
     UofxTranslateModule,
+
     UofxTreeModule,
     UofxUserSelectModule
   ]
 })
 export class UofxPackageModule { }
+
