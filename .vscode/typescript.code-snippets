@@ -139,4 +139,48 @@
       ],
       "description": "建立服務器樣板"
     }
+,
+    "X CreatModalConstructor": {
+      "prefix": "x-CreatModalConstructor",
+      "body": [
+        "constructor(public modalController: ModalController, private cdr: ChangeDetectorRef){}",
+        "",
+        "",
+        "//設定要回傳的參數",
+        "dismiss() {",
+        "this.modalController.dismiss({",
+        "  'dismissed': true",
+        "    });",
+        "  }",
+      ],
+      "description": "建立tModalConstructor樣板"
+    }
+    ,
+    "X CreatModal": {
+      "prefix": "x-CreatModal",
+      "body": [
+        "openModal() {",
+        "   this.presentModal().then(res => {",
+        "      res.onWillDismiss().then(resM => {",
+               "//關閉視窗帶回的參數resM.data",
+               "this.cdr.detectChanges();",
+        "       });",
+        "    });",
+        "}",
+        "",
+        "async presentModal() {",
+        "   const modal = await this.modalController.create({",
+        "    component: Component,",
+        "    cssClass: 'my-custom-class',",
+        "    swipeToClose: true,",
+        "     componentProps:{",
+        "        //傳給Modal參數",
+        "       }",
+        "     });",
+        "    await modal.present();",
+        "    return modal;",
+        "}",
+      ],
+      "description": "開啟Modal"
+    }
   }

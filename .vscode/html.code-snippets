@@ -86,4 +86,37 @@
 	  ],
 	  "description": "通用Button樣板"
 	}
+
+	,
+	"X Modal": {
+	  "prefix": "x-Modal",
+	  "body": [
+		"<ion-header translucent>",
+		"   <ion-toolbar> ",
+		"        <ion-title>清單</ion-title>",
+		"        <ion-buttons slot=\"end\">",
+		"             <ion-button (click)=\"dismiss()\">Close</ion-button>",
+		"        </ion-buttons> ",
+		"   </ion-toolbar>",
+		"</ion-header>",
+		"<ion-content>"
+	  ],
+	  "description": "通用Modal樣板"
+	}
+	,
+	"X List": {
+	  "prefix": "x-List",
+	  "body": [
+		"<ion-item",
+		"   *ngFor=\"let item of searchResult; let i = index\"",
+		"       (click)=\"selectItem(item)\" >",
+		"        <ion-label>",
+		"             <h2></h2>",
+		"        </ion-label>",
+		"   </ion-item>",
+		"</ion-header>",
+		"</ion-list>"
+	  ],
+	  "description": "通用ioniclist樣板"
+	}
   }

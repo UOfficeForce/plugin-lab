@@ -102,10 +102,10 @@ const BASIC_SERVICES = [
       { path: 'write', component: TemplateFieldWriteComponent },
       { path: 'view', component: TemplateFieldWriteComponent },
       //有app開發後再實作這段
-      // {
-      //   path: 'app',
-      //   loadChildren: () => import('../../mobile/hello-world/hello-world.module').then(m => m.FieldHelloWorldAppModule)
-      // }
+      {
+        path: 'app',
+        loadChildren: () => import('../../mobile/template-field/template-field.module').then(m => m.TemplateFieldAppModule)
+      }
     ]),
     TranslateModule.forChild(),
     ...EJS_MODULES,
