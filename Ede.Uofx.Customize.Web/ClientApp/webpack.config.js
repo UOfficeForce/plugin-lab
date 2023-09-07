@@ -8,6 +8,25 @@ sharedMappings.register(
   path.join(__dirname, './tsconfig.json'),
   [/* mapped paths to share */]);
 
+const sharedAngular = {
+  "@angular/core": { singleton: true, requiredVersion: '^16.0.0' },
+  "@angular/common": { singleton: true, requiredVersion: '^16.0.0' },
+  "@angular/common/http": { singleton: true, requiredVersion: '^16.0.0' },
+  "@angular/forms": { singleton: true, requiredVersion: '^16.0.0' },
+  "@angular/router": { singleton: true, requiredVersion: '^16.0.0' },
+};
+
+const sharedTranslate = {
+  "@ngx-translate/core": { singleton: true, requiredVersion: '^15.0.0' },
+  "@ngx-translate/http-loader": { singleton: true, requiredVersion: '^8.0.0' },
+};
+
+const sharedUofxLibraries = {
+  "@uofx/icon": { singleton: true, requiredVersion: '^1.0.0' },
+  "@uofx/core": { singleton: true, requiredVersion: '^2.0.0' },
+  '@uofx/core/interceptor': { singleton: true, requiredVersion: '^2.0.0' },
+};
+
 module.exports = {
   output: {
     uniqueName: "sample",
@@ -31,25 +50,13 @@ module.exports = {
   plugins: [
     // Web
     new ModuleFederationPlugin({
-      // library: { type: "module" },
-      name: "plugin",
+      name: 'plugin',
       filename: "remoteEntry.js",
       exposes: exposes.web,
       shared: {
-        "@angular/core": { singleton: true, requiredVersion: '~12.2.16' },
-        "@angular/common": { singleton: true, requiredVersion: '~12.2.16' },
-        "@angular/common/http": { singleton: true, requiredVersion: '~12.2.16' },
-        "@angular/forms": { singleton: true, requiredVersion: '~12.2.16' },
-        "@angular/router": { singleton: true, requiredVersion: '~12.2.16' },
-
-        "@ngx-translate/core": { singleton: true, requiredVersion: '~13.0.0' },
-        "@ngx-translate/http-loader": { singleton: true, requiredVersion: '^6.0.0' },
-
-        "@syncfusion/ej2-base": { singleton: true, requiredVersion: '~20.2.36' },
-
-        "@uofx/icon": { singleton: true, requiredVersion: '^1.2.0' },
-        "@uofx/core": { singleton: true, requiredVersion: '^1.3.0' },
-        '@uofx/core/interceptor': { singleton: true, requiredVersion: 'auto' },
+        ...sharedAngular,
+        ...sharedTranslate,
+        ...sharedUofxLibraries,
 
         ...sharedMappings.getDescriptors()
       }
@@ -57,25 +64,13 @@ module.exports = {
     }),
     // App
     new ModuleFederationPlugin({
-      // library: { type: "module" },
       name: "pluginApp",
       filename: "remoteEntryApp.js",
       exposes: exposes.app,
       shared: {
-        "@angular/core": { singleton: true, requiredVersion: 'auto' },
-        "@angular/common": { singleton: true, requiredVersion: 'auto' },
-        "@angular/common/http": { singleton: true, requiredVersion: 'auto' },
-        "@angular/forms": { singleton: true, requiredVersion: 'auto' },
-        "@angular/router": { singleton: true, requiredVersion: 'auto' },
-
-        "@ngx-translate/core": { singleton: true, requiredVersion: 'auto' },
-        "@ngx-translate/http-loader": { singleton: true, requiredVersion: 'auto' },
-
-        // "@ionic/angular": { singleton: true, requiredVersion: '^5.8.5' },
-
-        "@uofx/icon": { singleton: true, requiredVersion: '^1.3.0' },
-        "@uofx/core": { singleton: true, requiredVersion: '^1.4.0' },
-        "@uofx/core/interceptor": { singleton: true, requiredVersion: 'auto' },
+        ...sharedAngular,
+        ...sharedTranslate,
+        ...sharedUofxLibraries,
 
         "@uofx/app-native": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
 
