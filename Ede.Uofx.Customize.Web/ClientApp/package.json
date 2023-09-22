@@ -1,6 +1,6 @@
 {
   "name": "@uofx/plugin-lab",
-  "version": "0.0.1",
+  "version": "2.87.0",
   "scripts": {
     "ng": "ng",
     "prestart": "node aspnetcore-https",
