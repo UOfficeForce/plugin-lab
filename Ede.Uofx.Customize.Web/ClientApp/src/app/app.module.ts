@@ -1,25 +1,18 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  NO_ERRORS_SCHEMA,
-  NgModule,
-} from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {
-  MenuModule,
-  SidebarModule,
-  ToolbarModule,
-} from '@syncfusion/ej2-angular-navigations';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Helper } from '@uofx/core';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './develop-lab/home/home.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { IconModule } from './icon.module';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { LayoutComponent } from './develop-lab/layout/layout.component';
+import { MenuModule, SidebarModule, ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import { NavMenuComponent } from './develop-lab/nav-menu/nav-menu.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TemplateFieldWriteComponent } from './web/template-field/write/template-field.write.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { UofxTranslateLoader } from './translate-loader';
 
 // #region i18n services
@@ -46,9 +39,14 @@ const EJS_MODULES = [MenuModule, SidebarModule, ToolbarModule];
 /*修改*/
 /*新增RouterModule.forRoot的path，並在裡面import module的路徑和載入的mocule className*/
 @NgModule({
-  declarations: [AppComponent, NavMenuComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    NavMenuComponent,
+    HomeComponent,
+  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
@@ -63,7 +61,6 @@ const EJS_MODULES = [MenuModule, SidebarModule, ToolbarModule];
     IconModule.forRoot(),
   ],
   providers: [{ provide: 'BASE_HREF', useFactory: Helper.getBaseHref }],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
