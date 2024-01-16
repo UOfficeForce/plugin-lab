@@ -12,14 +12,10 @@ import {
   UntypedFormGroup,
   ValidationErrors,
   ValidatorFn,
+  Validators,
 } from '@angular/forms';
 import { BpmFwWriteComponent, UofxFormTools } from '@uofx/web-components/form';
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import {
-  Grid,
-  GridComponent,
-  PageSettingsModel,
-} from '@syncfusion/ej2-angular-grids';
 
 import { TemplateFieldExProps } from '../props/template-field.props.component';
 
@@ -80,14 +76,14 @@ export class TemplateFieldWriteComponent
 
   initForm() {
     this.form = this.fb.group({
-      message: this.value?.message || '',
+      message: [this.value?.message || '', Validators.required], // Add required validation
     });
 
-    // if (this.selfControl) {
-    //   // 在此便可設定自己的驗證器
-    //   this.selfControl.setValidators(validateSelf(this.form));
-    //   this.selfControl.updateValueAndValidity();
-    // }
+    if (this.selfControl) {
+      // 在此便可設定自己的驗證器
+      this.selfControl.setValidators(validateSelf(this.form));
+      this.selfControl.updateValueAndValidity();
+    }
   }
 
   /*判斷如果是儲存不用作驗證*/

@@ -10,30 +10,16 @@ import {
   BASIC_HTTP_HANDLER,
   BasicHttpHandler,
 } from '@service/basic-http-handler';
-import {
-  ButtonModule,
-  CheckBoxModule,
-  RadioButtonModule,
-} from '@syncfusion/ej2-angular-buttons';
-import {
-  DatePickerModule,
-  DateTimePickerModule,
-} from '@syncfusion/ej2-angular-calendars';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GridModule, PagerAllModule } from '@syncfusion/ej2-angular-grids';
-import {
-  NumericTextBoxModule,
-  TextBoxModule,
-} from '@syncfusion/ej2-angular-inputs';
 import {
   UofxFormFieldBaseModule,
   UofxFormModule,
 } from '@uofx/web-components/form';
 
 import { BasicHttpClient } from '@service/basic-http-client';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
-import { DialogModule } from '@syncfusion/ej2-angular-popups';
-import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TemplateFieldPropsComponent } from './props/template-field.props.component';
@@ -48,18 +34,9 @@ import { UofxUserSelectModule } from '@uofx/web-components/user-select';
 
 /*↑↑↑↑修改import 各模式的Component↑↑↑↑*/
 
-const EJS_MODULES = [
-  ButtonModule,
-  CheckBoxModule,
-  DatePickerModule,
-  DateTimePickerModule,
-  DialogModule,
-  DropDownListModule,
-  GridModule,
-  NumericTextBoxModule,
-  RadioButtonModule,
-  TextBoxModule,
-  PagerAllModule,
+const PRIMENG_MODULES = [
+  CheckboxModule,
+  CalendarModule
 ];
 
 const UOF_MODULES = [
@@ -106,7 +83,7 @@ const BASIC_SERVICES = [
       }
     ]),
     TranslateModule.forChild(),
-    ...EJS_MODULES,
+    ...PRIMENG_MODULES,
     ...UOF_MODULES,
   ],
   providers: [BASIC_SERVICES, UofxPluginApiService],

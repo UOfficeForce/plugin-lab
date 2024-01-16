@@ -1,6 +1,7 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
+const manifest = require("./src/plugin.manifest.json");
 const exposes = require("./webpack-exposes.config");
 
 const sharedMappings = new mf.SharedMappings();
@@ -16,15 +17,19 @@ const sharedAngular = {
   "@angular/router": { singleton: true, requiredVersion: '^16.0.0' },
 };
 
-const sharedTranslate = {
+const sharedThird = {
   "@ngx-translate/core": { singleton: true, requiredVersion: '^15.0.0' },
   "@ngx-translate/http-loader": { singleton: true, requiredVersion: '^8.0.0' },
+  "primeng": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+  "primeng/api": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+  "primeng/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
 };
 
 const sharedUofxLibraries = {
   "@uofx/icon": { singleton: true, requiredVersion: '^1.0.0' },
   "@uofx/core": { singleton: true, requiredVersion: '^2.0.0' },
   '@uofx/core/interceptor': { singleton: true, requiredVersion: '^2.0.0' },
+  "@uofx/web-components": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
 };
 
 module.exports = {
@@ -50,15 +55,13 @@ module.exports = {
   plugins: [
     // Web
     new ModuleFederationPlugin({
-      name: 'plugin',
+      name: manifest.code.replace('.', '_'),
       filename: "remoteEntry.js",
       exposes: exposes.web,
       shared: {
         ...sharedAngular,
-        ...sharedTranslate,
+        ...sharedThird,
         ...sharedUofxLibraries,
-
-        "@grapecity/gcpdfviewer": { singleton: true, strictVersion: false, requiredVersion: '^3.0.20' },
 
         ...sharedMappings.getDescriptors()
       }
@@ -66,15 +69,15 @@ module.exports = {
     }),
     // App
     new ModuleFederationPlugin({
-      name: "pluginApp",
+      name: manifest.code.replace('.', '_') + '_App',
       filename: "remoteEntryApp.js",
       exposes: exposes.app,
       shared: {
         ...sharedAngular,
-        ...sharedTranslate,
+        ...sharedThird,
         ...sharedUofxLibraries,
 
-        "@uofx/app-native": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+        "@uofx/app-native": { singleton: true, strictVersion: false, requiredVersion: '^1.1.3' },
 
         ...sharedMappings.getDescriptors()
       }

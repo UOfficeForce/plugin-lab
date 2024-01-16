@@ -1,18 +1,18 @@
-import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Helper } from '@uofx/core';
 import { HomeComponent } from './develop-lab/home/home.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { IconModule } from './icon.module';
 import { LayoutComponent } from './develop-lab/layout/layout.component';
-import { MenuModule, SidebarModule, ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { NavMenuComponent } from './develop-lab/nav-menu/nav-menu.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TemplateFieldWriteComponent } from './web/template-field/write/template-field.write.component';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { UofxTranslateLoader } from './translate-loader';
 
 // #region i18n services
@@ -34,7 +34,7 @@ const I18NSERVICE_MODULES = [
 
 //#endregion
 
-const EJS_MODULES = [MenuModule, SidebarModule, ToolbarModule];
+const PRIMENG_MODULES = [];
 
 /*修改*/
 /*新增RouterModule.forRoot的path，並在裡面import module的路徑和載入的mocule className*/
@@ -57,7 +57,7 @@ const EJS_MODULES = [MenuModule, SidebarModule, ToolbarModule];
       }
     ]),
     ...I18NSERVICE_MODULES,
-    ...EJS_MODULES,
+    ...PRIMENG_MODULES,
     IconModule.forRoot(),
   ],
   providers: [{ provide: 'BASE_HREF', useFactory: Helper.getBaseHref }],
