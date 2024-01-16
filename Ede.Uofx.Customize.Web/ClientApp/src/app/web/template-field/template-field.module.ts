@@ -42,9 +42,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { UofxDialogModule } from '@uofx/web-components/dialog';
 import { UofxIconModule } from '@uofx/web-components/icon';
 import { UofxPluginApiService } from '@uofx/plugin-api';
-import { UofxSelectModule } from '@uofx/web-components/select';
 import { UofxToastModule } from '@uofx/web-components/toast';
-import { UofxTooltipModule } from '@uofx/web-components/tooltip';
 import { UofxTranslateModule } from '@uofx/web-components';
 import { UofxUserSelectModule } from '@uofx/web-components/user-select';
 
@@ -69,9 +67,9 @@ const UOF_MODULES = [
   UofxFormFieldBaseModule,
   UofxFormModule,
   UofxIconModule,
-  UofxSelectModule,
+
   UofxToastModule,
-  UofxTooltipModule,
+
   UofxTranslateModule,
   UofxUserSelectModule
 ];
