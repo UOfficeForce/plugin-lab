@@ -14,13 +14,11 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
-import { CustomerService } from '@service/gm.service';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SelectItemComponent } from './select-item/select-item.component';
 import { TableModule } from 'primeng/table';
 import { TemplateFieldPropsComponent } from './props/template-field.props.component';
 import { TemplateFieldWriteComponent } from './write/template-field.write.component';
@@ -99,9 +97,9 @@ const BASIC_SERVICES = [
     ...PRIMENG_MODULES,
     ...UOF_MODULES,
   ],
-  providers: [BASIC_SERVICES, UofxPluginApiService, CustomerService],
+  providers: [BASIC_SERVICES, UofxPluginApiService],
   exports: [...COMPONENTS],
-  declarations: [...COMPONENTS, SelectItemComponent],
+  declarations: [...COMPONENTS],
 })
 
 /*修改*/
