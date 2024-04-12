@@ -72,51 +72,22 @@
       "description": "建立DialogCreateet90%滿版開窗様板"
     }
     ,
-    "Grid Import": {
-      "prefix": "x-Grid import",
+    "Delete Table Select Item": {
+      "prefix": "x-ptable deleteSelectedItem",
       "body": [
-        "import {",
-        "  Grid,",
-        "  GridComponent,",
-        " PageSettingsModel,",
-        "} from '@syncfusion/ej2-angular-grids';"
+        "deleteSelectedItem() {",
+        "  // this.selectedItem為勾選項目清單 請宣告全域變數.selectedItem=[]",
+        "  // this.gridData 請宣告全域變數.gridData:Array<any>=[]",
+        "  this.gridData = this.gridData.filter(item => !this.selectedItems.includes(item));",
+        "  this.gridData.map((p, index) => {",
+        "    p.no = index + 1;",
+        "  });",
+        "  this.selectedItems = [];",
+        "}"
       ],
       "description": "使用Grid需import清單"
     }
-    ,
-    "Grid Pager Implement": {
-      "prefix": "x-Grid Pager implement",
-      "body": [
-        "/*any 為grid item的inerface物件*/",
-        "  searchResult: Array<any> = [];",
-        "/*searchResult Bind完後記得要再重設資料筆數*/",
-        "/*this.pageModel.totalCount = this.searchResult.length; */",
-        "pageModel = { currentPage: 1, pageCount: 5, pageSize: 10, totalCount: 40 };",
-        "initialPage = <PageSettingsModel>{",
-        "  currentPage: 1,",
-        "  pageCount: 2,",
-        "  pageSize: 10,",
-        "  totalRecordsCount: 20,",
-        "};",
-        "",
-        "/*分頁器事件*/",
-        "onPagerClick(event) {",
-        "  if (event.isTrusted) return;",
-        "  if (this.pageModel.currentPage === event.currentPage) return;",
-        "",
-        "  this.pageModel.currentPage = event.currentPage;",
-        "",
-        "  this.initialPage = <PageSettingsModel>{",
-        "    currentPage: event.currentPage,",
-        "    pageCount: 2,",
-        "    pageSize: 10,",
-        "    totalRecordsCount: 20,",
-        "  };",
-        "}"
-
-      ],
-      "description": "使用Grid分頁器所實作項目"
-    }
+   
     ,
     "X CreateService": {
       "prefix": "x-CreateService",
