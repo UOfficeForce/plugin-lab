@@ -7,7 +7,7 @@ const exposes = {
     //勿刪除存放Web欄位的路徑
   },
   app: {
-    // './TemplateField': './src/app/web/template-field/template-field.module.ts'
+     './TemplateField': './src/app/mobile/template-field/template-field.module.ts'
     //勿刪除存放App欄位的路徑
   }
 };
