@@ -8,6 +8,7 @@
 
 import {
   AbstractControl,
+  FormControl,
   UntypedFormBuilder,
   UntypedFormGroup,
   ValidationErrors,
@@ -50,6 +51,7 @@ export class TemplateFieldWriteComponent
   }
 
 
+  errorMsg:string;
 
   ngOnInit(): void {
 
@@ -87,18 +89,67 @@ export class TemplateFieldWriteComponent
   }
 
   /*判斷如果是儲存不用作驗證*/
-  checkBeforeSubmit(): Promise<boolean> {
-    return new Promise((resolve) => {
-      const value = this.form.value;
-      resolve(true);
-    });
-  }
-}
+  checkBeforeSubmit(checkValidator: boolean): Promise<boolean> {
 
+    // 儲存不需要驗證，直接回傳true
+    if (!checkValidator) {
+      return new Promise((resolve) => {
+        resolve(true);
+      });
+    }
+    else {
+
+      return new Promise((resolve) => {
+
+        if (checkValidator) {
+          return this.checkFieldValid(resolve);
+        }
+        else {
+          resolve(true);
+        }
+      });
+    }
+  }
+
+    /** 實作送出前驗證 */
+    checkFieldValid(resolve) {
+      this.setBeforeCheck(true);
+      this.errorMsg = '';
+      //實作驗證邏輯
+      if (false) {
+        this.errorMsg = '放入錯誤訊息';
+        resolve(false );
+      } else {
+        this.errorMsg = '';
+        resolve(true);
+      }
+    }
+
+    /** 驗證前的設定 */
+    setBeforeCheck(checkValidator: boolean) {
+
+      this.tools.markFormGroup(this.form);
+      // form驗證狀態重製
+      if (!checkValidator) this.form.reset(this.form.getRawValue());
+      // 暫存時不驗證必填
+      checkFieldDefaultValidator(checkValidator, new FormControl(this.form.controls));
+    }
+}
 
 /*外掛欄位自訂的證器*/
 function validateSelf(form: UntypedFormGroup): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     return form.valid ? null : { formInvalid: true };
   };
+}
+
+/** 暫存時不驗證必填 */
+function checkFieldDefaultValidator(checkDefaultValidator: boolean, formControl: FormControl) {
+  if (!checkDefaultValidator && formControl.hasError('required')) {
+    delete formControl.errors['required'];
+    formControl.setErrors(Object.keys(formControl.errors).length === 0 ? null : formControl.errors);
+  }
+  else if (checkDefaultValidator && formControl.valid) {
+    formControl.updateValueAndValidity();
+  }
 }
