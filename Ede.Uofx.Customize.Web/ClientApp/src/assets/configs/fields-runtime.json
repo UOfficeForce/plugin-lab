@@ -5,7 +5,7 @@
     "moduleName": "TemplateFieldModule",
     "app": {
       "exposedModule": "./TemplateField",
-      "moduleName": "FieldHelloWorldAppModule"
+      "moduleName": "TemplateFieldAppModule"
     }
   }
 }
