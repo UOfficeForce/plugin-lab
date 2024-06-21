@@ -26,7 +26,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { UofxButtonModule } from '@uofx/web-components/button';
 import { UofxDialogModule } from '@uofx/web-components/dialog';
 import { UofxIconModule } from '@uofx/web-components/icon';
-import { UofxPluginApiService } from '@uofx/plugin-api';
+import { UofxPluginApiService } from '@uofx/plugin/api';
 import { UofxTextareaModule } from '@uofx/web-components/textarea';
 import { UofxToastModule } from '@uofx/web-components/toast';
 import { UofxUserSelectModule } from '@uofx/web-components/user-select';

@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { TemplateFieldComponent } from './template-field.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UofxFormFieldBaseModule } from '@uofx/app-components/form';
-import { UofxPluginApiService } from '@uofx/plugin-api';
+import { UofxPluginApiService } from '@uofx/plugin/api';
 
 const UOF_MODULES = [
   UofxFormFieldBaseModule,

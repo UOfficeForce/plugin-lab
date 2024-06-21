@@ -29,7 +29,6 @@ const sharedUofxLibraries = {
   "@uofx/icon": { singleton: true, requiredVersion: '^1.0.0' },
   "@uofx/core": { singleton: true, requiredVersion: '^2.0.0' },
   '@uofx/core/interceptor': { singleton: true, requiredVersion: '^2.0.0' },
-  "@uofx/web-components": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
 };
 
 module.exports = {
